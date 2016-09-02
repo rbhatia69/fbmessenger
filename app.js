@@ -632,8 +632,8 @@ function sendOpenForm(recipientId) {
         payload: {
           template_type: "generic",
           elements: [{
-            title: "rift",
-            subtitle: "Income Statement",
+            title: "Income Statement",
+            subtitle: "FCCSApps1",
             item_url: "http://cloud.oracle.com",               
             image_url: SERVER_URL + "/assets/form.png",
             buttons: [{
@@ -646,8 +646,8 @@ function sendOpenForm(recipientId) {
               payload: "Payload",
             }],
           }, {
-            title: "touch",
-            subtitle: "Income Statement by Region",
+            title: "Income Statement by Region",
+            subtitle: "FCCSApps1",
             item_url: "http://cloud.oracle.com",               
             image_url: SERVER_URL + "/assets/form.png",
             buttons: [{
