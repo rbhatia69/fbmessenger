@@ -556,6 +556,118 @@ function sendHelp(recipientId) {
   callSendAPI(messageData);
 }
 
+function sendApps(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Planning: PBCSApp1\n\n Close Consol: FCCSApp1\n\n",
+      metadata: "DEVELOPER_DEFINED_METADATA"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendConnect(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Connection succesful!!!",
+      metadata: "DEVELOPER_DEFINED_METADATA"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendOpen(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Connected to app: FCCSApps1",
+      metadata: "DEVELOPER_DEFINED_METADATA"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+
+function sendCloseStatus(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          url: SERVER_URL + "/assets/close.png"
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
+ * Send a Structured Message (Generic Message type) using the Send API.
+ *
+ */
+function sendOpenForm(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "rift",
+            subtitle: "Income Statement",
+            item_url: "http://cloud.oracle.com",               
+            image_url: SERVER_URL + "/assets/form.png",
+            buttons: [{
+              type: "web_url",
+              url: "http://cloud.oracle.com",
+              title: "Open Form"
+            }, {
+              type: "postback",
+              title: "Call",
+              payload: "Payload",
+            }],
+          }, {
+            title: "touch",
+            subtitle: "Income Statement by Region",
+            item_url: "http://cloud.oracle.com",               
+            image_url: SERVER_URL + "/assets/form.png",
+            buttons: [{
+              type: "web_url",
+              url: "http://cloud.oracle.com",
+              title: "Open Form"
+            }, {
+              type: "postback",
+              title: "Call",
+              payload: "Payload",
+            }]
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
 /*
  * Send a text message using the Send API.
  *
@@ -609,6 +721,7 @@ function sendButtonMessage(recipientId) {
 
   callSendAPI(messageData);
 }
+
 
 /*
  * Send a Structured Message (Generic Message type) using the Send API.
