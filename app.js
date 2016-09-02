@@ -307,6 +307,34 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
+      case 'help':
+        sendHelp(senderID);
+        break;
+
+      case 'connect':
+        sendConnect(senderID);
+        break;
+
+      case 'disconnect':
+        sendDisconnect(senderID);
+        break;
+
+      case 'apps':
+        sendApps(senderID);
+        break;
+
+      case 'open':
+        sendOpen(senderID);
+        break;
+
+      case 'close status':
+        sendCloseStatus(senderID);
+        break;
+
+      case 'open form':
+        sendOpenForm(senderID);
+        break;
+
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -508,6 +536,20 @@ function sendFileMessage(recipientId) {
           url: SERVER_URL + "/assets/test.txt"
         }
       }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendHelp(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Valid commands for Oracle EPM bot\n\n help: get help for all commands\n connect <u/p@connect>: connect to Oracle EPM\n apps: list of all applications\n open <app>: open application name\n close status: get current period close status\n open form <form>: open form",
+      metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
 
